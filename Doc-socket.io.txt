@@ -1,0 +1,16 @@
+//Code integrated in REST API Code
+
+In this module we are looking to address scenario where server informs to client about something.
+
+e.g. When userA sends message to userB, userA is making service call to server but userB hasn't made any request. In such case server should be able to tell client by some push. Client can do that by checking server for messages at some interval but that will make lot of unneccesory calls and many may not lead to desired output. So here we look for a way where server can send some information to client without client making request.
+
+In cas eof HTTP it defines how server and client communication should happen(request to/from response), but there comes a "websockets" which is established by HTTP which servers can use to notify client(push messages to client device)
+
+we are going to use "socket.io" to use websockets.
+
+npm install --save socket.io //working fine with version instructor is using "socket.io": "^2.1.1"
+
+npm install --save socket.io-client //works with "socket.io-client": "^2.1.1"
+
+using "emit"(send action to all users) OR "broadcast"(send action to all users except originator) server sends actions to client which then client will have to handle.
+
