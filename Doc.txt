@@ -1,0 +1,15 @@
+Unlike traditional node.js application we can't use session for authentication in case of REST APIs as they are stateless. To implement authentication with REST APIs we will have to implement JWT(JSON Web Token). 
+
+JWT is a normal javascript object appended with somekind of token generated on server send in response to client on authentication. Client will store that that token and pass in subseqent request which server then validate. This token follows some algorithams which only server is aware of so it will not get compromised that easily and server will have control over it while validating.
+
+we use below package to implement JWT
+
+npm install --save jsonwebtoken
+
+from client we can pass token in "query parameter", "body"(GET doesn't have it), "headers" looks most familiar as per instructor in "Authorization" header like below.
+
+headers: {
+	Authorization: 'Bearer ' + token
+}
+
+//You can pass token without 'Bearer ' string but to add it is a common convention
